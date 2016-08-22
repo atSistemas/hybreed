@@ -1,0 +1,7 @@
+//font-awesome
+@import 'fonts/font-awesome/font-awesome';
+
+@include defineFonts((
+  //lato
+  lato: lato/normal
+))

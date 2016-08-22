@@ -1,0 +1,29 @@
+@mixin absolute($top, $right: null, $bottom: null, $left: null) {
+  position: absolute;
+  @if($right == null) {
+    top: $top;
+    right: $top;
+    bottom: $top;
+    left: $top;
+  } @else {
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+  }
+}
+
+@mixin ellipsis() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin defineFonts($fonts) {
+  @each $name, $resource in $fonts {
+    @font-face {
+      font-family: $name;
+      src: url('fonts/' + $resource + '.ttf');
+    }
+  }
+}

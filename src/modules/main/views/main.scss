@@ -1,0 +1,46 @@
+.main {
+
+  $header-size: 50px;
+
+  .header {
+    @include absolute(0, 0, auto, 0);
+    height: $header-size;
+    background: #DDD;
+    border-bottom: 1px solid silver;
+
+    .button {
+      width: $header-size;
+      line-height: $header-size;
+      font-size: 25pt;
+      text-align: center;
+
+      &.back {
+        display: none;
+        @include absolute(0, auto, 0, 0);
+      }
+    }
+
+    .title {
+      @include absolute(0);
+      font-weight: bold;
+      line-height: $header-size;
+      padding: 0 10px;
+      text-transform: uppercase;
+      @include ellipsis();
+    }
+
+    &.with-back-button {
+      .title {
+        left: $header-size;
+      }
+
+      .button.back {
+        display: block;
+      }
+    }
+  }
+
+  .content {
+    @include absolute($header-size, 0, 0, 0);
+  }
+}
