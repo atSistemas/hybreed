@@ -22,7 +22,7 @@ function returnLogin() {
 
 function showMainView() {
     mainView = new MainView();
-    App.main.show(mainView);
+    App.showView(mainView);
 }
 
 function show(params) {
@@ -30,7 +30,7 @@ function show(params) {
     onBackPressed = params.onBackPressed;
     mainView.toggleBackButton(onBackPressed);
     mainView.setTitle(params.title);
-    mainView.content.show(params.view);
+    mainView.getRegion('content').show(params.view);
     associateEventsMainView();
 }
 

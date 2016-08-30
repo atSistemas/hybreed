@@ -1,6 +1,6 @@
 import Template from './main.html'
 
-export default Marionette.LayoutView.extend({
+export default Marionette.View.extend({
 
     template: _.template(Template),
 

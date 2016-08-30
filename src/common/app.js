@@ -1,9 +1,5 @@
-var app = new Marionette.Application();
-
-window.Hybreed.UI.createSpinner('main');
-
-app.addRegions({
-    main: '#main'
+var app = new Marionette.Application({
+    region: '#main'
 });
 
 app.on('initialize:after', function () {
@@ -11,5 +7,7 @@ app.on('initialize:after', function () {
         return Backbone.history.start();
     }
 });
+
+window.Hybreed.UI.createSpinner('main');
 
 export default app;

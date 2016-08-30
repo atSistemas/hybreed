@@ -1,6 +1,6 @@
 import Template from './example.html'
 
-export default Marionette.ItemView.extend({
+export default Marionette.View.extend({
 
     template: _.template(Template),
 
@@ -8,7 +8,7 @@ export default Marionette.ItemView.extend({
         input: 'input'
     },
 
-    onShow: function() {
+    onAttach: function() {
         this.ui.input.ionRangeSlider();
     },
 
