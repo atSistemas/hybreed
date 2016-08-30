@@ -1,7 +1,8 @@
 import App from 'common/app';
 import MainView from './views/main';
-import ExampleController from 'modules/example';
-import LoginController from 'modules/login';
+//import ExampleController from 'modules/example';
+//import LoginController from 'modules/login';
+import {ExampleController, LoginController} from 'Modules';
 
 var mainView;
 var onBackPressed;
