@@ -222,10 +222,15 @@
         return Hybreed.mobile && _.isEqual(Hybreed.platform, 'android') &&
             Hybreed.platformVersion.indexOf('2.') === 0;
     };
-    
+
     Hybreed.start = function(debug) {
+        console.log("Hybreed Start!!");
+
+        var deferred = $.Deferred();
+
         var onDeviceReady = function (desktop) {
 
+            console.log("Device Ready!!");
 
             Hybreed.init(debug);
             //googleAnalytics.init();
@@ -248,9 +253,13 @@
 
             Hybreed.log("[Hybreed Mobile] Init");
 
+            deferred.resolve();
+
         };
 
         Hybreed.getPlatform();
+
+        console.log("Hybreed.mobile:" + Hybreed.mobile);
 
         if (Hybreed.mobile === true) {
             document.addEventListener("online", Hybreed.checkNet, false); // Cordova
@@ -264,8 +273,10 @@
                     return alert(message);
                 }
             };
-            return onDeviceReady(true);
+            onDeviceReady(true);
         }
+
+        return deferred.promise();
     };
 
     Hybreed.UI = {

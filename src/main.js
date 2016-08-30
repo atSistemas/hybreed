@@ -3,7 +3,10 @@ import App from 'common/app';
 import MainController from 'modules/main';
 
 $(document).ready(() => {
-    window.Hybreed.start(true);
-    App.start();
-    MainController.start();
+    console.log("Document ready!");
+    window.Hybreed.start(true)
+      .then(function(){
+          App.start();
+          MainController.start();
+      });
 });
