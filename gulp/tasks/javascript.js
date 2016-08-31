@@ -11,11 +11,12 @@ var sourcemaps    = require('gulp-sourcemaps');
 var source        = require('vinyl-source-stream');
 var buffer        = require('vinyl-buffer');
 var uglify        = require('gulp-uglify');
+var eslint        = require('gulp-eslint');
 var browserSync   = require('./browserSync');
 
 var bundler;
 
-gulp.task('javascript', function() {
+gulp.task('javascript', ['lint'], function() {
 
     bundler = browserify({
             entries: 'src/main.js',
@@ -35,10 +36,16 @@ gulp.task('javascript', function() {
 
     if(global.isDebug) {
         bundler.on('update', javascript);
+        bundler.on('update', lint);
     }
 
     return javascript();
 });
+
+gulp.task('lint', function() {
+    return lint();
+});
+
 
 function javascript() {
     return bundler
@@ -54,4 +61,10 @@ function javascript() {
         .pipe(gulpif(global.isDebug, sourcemaps.write())) // '.' for external file
         .pipe(gulp.dest('www'))
         .pipe(gulpif(global.isDebug, browserSync.stream({once: true})));
+}
+
+function lint() {
+    return gulp.src('src/**/*.js')
+        .pipe(eslint())
+        .pipe(eslint.format());
 }

@@ -31,11 +31,11 @@
 
     Broker.showViewInContent = function (view, content, preventDestroy, animationType) {
         preventDestroy = preventDestroy || false;
-        this.events.trigger("app:show:" + content, view, preventDestroy);
+        this.events.trigger('app:show:' + content, view, preventDestroy);
         if (!_.isUndefined(animationType)) {
-            view.$el.one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd",function () {
-                $(this).removeClass("animated " + animationType);
-            }).addClass("animated " + animationType);
+            view.$el.one('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd',function () {
+                $(this).removeClass('animated ' + animationType);
+            }).addClass('animated ' + animationType);
         }
     };
 
@@ -43,9 +43,9 @@
         preventDestroy = preventDestroy || false;
         layout.show(view, {preventDestroy: preventDestroy});
         if (!_.isUndefined(animationType)) {
-            view.$el.one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd",function () {
-                $(this).removeClass("animated " + animationType);
-            }).addClass("animated " + animationType);
+            view.$el.one('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd',function () {
+                $(this).removeClass('animated ' + animationType);
+            }).addClass('animated ' + animationType);
         }
     };
 

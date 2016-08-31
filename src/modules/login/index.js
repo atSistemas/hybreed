@@ -11,7 +11,7 @@ function showExampleView() {
     loginView = new LoginView();
     MainController.show({
         onBackPressed: false,
-        title: "login",
+        title: 'login',
         view: loginView,
         showHeader: false
     });

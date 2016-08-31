@@ -27,7 +27,7 @@
 
 })(function(root, Hybreed, $, Fastclick, Spinner) {
 
-    Hybreed.version = "5.0.0";
+    Hybreed.version = '5.0.0';
     Hybreed.enabled = true;
     Hybreed.el = null;
     Hybreed.online = false;
@@ -38,9 +38,9 @@
     Hybreed.init = function (b) {
 
         Hybreed.debug(b);
-        Hybreed.log("[Hybreed] Init");
-        Hybreed.log("[Hybreed] Version " + Hybreed.version);
-        Hybreed.log("[Hybreed] PixelRatio: " + window.devicePixelRatio + " (" + window.screen.width + "x" + window.screen.height + ")");
+        Hybreed.log('[Hybreed] Init');
+        Hybreed.log('[Hybreed] Version ' + Hybreed.version);
+        Hybreed.log('[Hybreed] PixelRatio: ' + window.devicePixelRatio + ' (' + window.screen.width + 'x' + window.screen.height + ')');
 
         $.support.cors = true;
         $.ajaxSetup({
@@ -50,20 +50,20 @@
 
         // JQuery Configuration : Ajax Errors
         $(document).ajaxError(function (event, request, settings) {
-            return console.log(request.status + " " + request.statusText + " " + request.responseText + "\n" + settings.url);
+            return console.log(request.status + ' ' + request.statusText + ' ' + request.responseText + '\n' + settings.url);
         });
 
         // ontouchstart: enable CSS active pseudo styles in iOS
-        document.addEventListener("touchstart", (function () {
+        document.addEventListener('touchstart', (function () {
         }), false);
 
-        var fastclick = new Fastclick(document.body);
+        new Fastclick(document.body);
 
         /**
          * prevent ugly selection of text and elements in your UI
          * prevent UI elements from displaying a context menu on long-tap
          */
-        if (Hybreed.platform === "ios") {
+        if (Hybreed.platform === 'ios') {
             document.documentElement.style.webkitTouchCallout = 'none';
             document.documentElement.style.webkitUserSelect = 'none';
             document.documentElement.style.cursor = 'default';
@@ -73,11 +73,11 @@
          * prevent ugly selection of text and elements in your UI
          * prevent UI elements from displaying a context menu on long-tap
          */
-        if (Hybreed.platform === "android") {
-            document.addEventListener('longpress', function (e) {
+        if (Hybreed.platform === 'android') {
+            document.addEventListener('longpress', function() {
                 return false;
             });
-            document.addEventListener('longclick', function (e) {
+            document.addEventListener('longclick', function() {
                 return false;
             });
             document.documentElement.style.cursor = 'default';
@@ -107,7 +107,7 @@
     Hybreed.getLocation = function () {
         var success = function (p) {
             Hybreed.location = p;
-            Hybreed.log(p.coords.latitude + " " + p.coords.longitude);
+            Hybreed.log(p.coords.latitude + ' ' + p.coords.longitude);
         };
         var locFail = function (err) {
             Hybreed.log('ERROR(' + err.code + '): ' + err.message);
@@ -135,8 +135,8 @@
 
     Hybreed.debug = function (b) {
         Hybreed.debugEnabled = b;
-        Hybreed.el = $("#debugLog");
-        return Hybreed.log("[Hybreed] Debugging: " + b);
+        Hybreed.el = $('#debugLog');
+        return Hybreed.log('[Hybreed] Debugging: ' + b);
     };
 
     Hybreed.log = function (text, variables) {
@@ -155,7 +155,7 @@
         if (str.length <= length) {
             return str;
         }
-        ellipsis = "...";
+        ellipsis = '...';
         str1 = str.slice(0, length);
         return str1 + ellipsis;
     };
@@ -166,33 +166,32 @@
             return (n < 10 ? '0' : '') + n;
         }
 
-        var milliseconds, minutes, seconds;
-        milliseconds = milli % 1000;
+        var minutes, seconds;
         seconds = Math.floor((milli / 1000) % 60);
         minutes = Math.floor((milli / (60 * 1000)) % 60);
-        return addZ(minutes) + ":" + addZ(seconds);
+        return addZ(minutes) + ':' + addZ(seconds);
     };
 
     Hybreed.centerTarget = function (target) {
         var targetNode = document.getElementById(target);
-        targetNode.style.marginTop = ((window.innerHeight - targetNode.style.height) / 2) + "px";
-        //console.log("[Hybreed] Centertarget at " + ((window.innerHeight - targetNode.style.height) / 2) + "px");
-        //$(target).css('marginTop', (($(target).parent().innerHeight() - $(target).position().top - $(target).height()) / 2) + "px");
+        targetNode.style.marginTop = ((window.innerHeight - targetNode.style.height) / 2) + 'px';
+        //console.log('[Hybreed] Centertarget at ' + ((window.innerHeight - targetNode.style.height) / 2) + 'px');
+        //$(target).css('marginTop', (($(target).parent().innerHeight() - $(target).position().top - $(target).height()) / 2) + 'px');
     };
 
-    Hybreed.detectDevice = function(options){
+    Hybreed.detectDevice = function(){
         var w = window.screen.width,
             h = window.screen.height,
             diagonalSize = Math.sqrt(w*w+h*h);
 
-        console.log("Diagonal Size: " + diagonalSize);
+        console.log('Diagonal Size: ' + diagonalSize);
 
         var maxDiagonal = 1280;
 
         if (diagonalSize >= maxDiagonal) {
-            return "tablet";
+            return 'tablet';
         } else {
-            return "smartphone";
+            return 'smartphone';
         }
 
     };
@@ -224,13 +223,13 @@
     };
 
     Hybreed.start = function(debug) {
-        console.log("Hybreed Start!!");
+        console.log('Hybreed Start!!');
 
         var deferred = $.Deferred();
 
-        var onDeviceReady = function (desktop) {
+        var onDeviceReady = function() {
 
-            console.log("Device Ready!!");
+            console.log('Device Ready!!');
 
             Hybreed.init(debug);
             //googleAnalytics.init();
@@ -251,7 +250,7 @@
              */
             // Hybreed.Analytics.setTrackingID('UA-XXXXXXXX-X');
 
-            Hybreed.log("[Hybreed Mobile] Init");
+            Hybreed.log('[Hybreed Mobile] Init');
 
             deferred.resolve();
 
@@ -259,12 +258,12 @@
 
         Hybreed.getPlatform();
 
-        console.log("Hybreed.mobile:" + Hybreed.mobile);
+        console.log('Hybreed.mobile:' + Hybreed.mobile);
 
         if (Hybreed.mobile === true) {
-            document.addEventListener("online", Hybreed.checkNet, false); // Cordova
-            document.addEventListener("offline", Hybreed.checkNet, false); // Cordova
-            document.addEventListener("deviceready", onDeviceReady, false); // This
+            document.addEventListener('online', Hybreed.checkNet, false); // Cordova
+            document.addEventListener('offline', Hybreed.checkNet, false); // Cordova
+            document.addEventListener('deviceready', onDeviceReady, false); // This
         }
         else {
             // Polyfill for navigator.notification features to work in browser when debugging
@@ -290,7 +289,7 @@
             tap: true
         },
 
-        $spinner: $("#spinner"),
+        $spinner: $('#spinner'),
 
         generateScroll: function (selector, options) {
             require('iscroll');
@@ -303,10 +302,10 @@
                 force = options.hasOwnProperty('force');
             }
 
-            if (Hybreed.mobile && Hybreed.platform !== "ios" && force === false) {
-                $(selector).css("overflow", "scroll");
+            if (Hybreed.mobile && Hybreed.platform !== 'ios' && force === false) {
+                $(selector).css('overflow', 'scroll');
             } else {
-                $(selector).css("overflow", "hidden");
+                $(selector).css('overflow', 'hidden');
                 /*if (_.isNull(options)) {
                  scroll = new IScroll(selector, this.defaultUIOptions);
                  } else {
@@ -327,7 +326,7 @@
 
             for (i = 0; i < len; i++) {
                 arg = arguments[i];
-                if (typeof arg !== "object") {
+                if (typeof arg !== 'object') {
                     continue;
                 }
                 for (p in arg) {
@@ -371,8 +370,6 @@
         addClearButton: function(selector){
             require('add-clear');
 
-            var that = this;
-
             /**
              * Available options:
              *
@@ -413,36 +410,36 @@
             if (Hybreed.mobile && Hybreed.online) {
                 this.UA = id;
                 analytics.startTrackerWithId(id);
-                Hybreed.log("[Hybreed Analytics] Add tracking ID: " + id);
+                Hybreed.log('[Hybreed Analytics] Add tracking ID: ' + id);
             } else {
-                Hybreed.log("[Hybreed Analytics] Warning: No mobile environment detected. Cannot setup tracking ID.");
+                Hybreed.log('[Hybreed Analytics] Warning: No mobile environment detected. Cannot setup tracking ID.');
             }
         },
 
         trackView: function (viewTitle) {
             if (this.UA === null) {
-                Hybreed.log("[Hybreed Analytics] Warning: No application id found. Set it up first.");
+                Hybreed.log('[Hybreed Analytics] Warning: No application id found. Set it up first.');
             } else if (Hybreed.mobile && Hybreed.online) {
                 analytics.trackView(viewTitle);
-                Hybreed.log("[Hybreed Analytics] View Tracked: " + viewTitle);
+                Hybreed.log('[Hybreed Analytics] View Tracked: ' + viewTitle);
             }
         },
 
         trackEvent: function (category, action, label, value) {
             if (this.UA === null) {
-                Hybreed.log("[Hybreed Analytics] Warning: No application id found. Set it up first.");
+                Hybreed.log('[Hybreed Analytics] Warning: No application id found. Set it up first.');
             } else if (Hybreed.mobile && Hybreed.online) {
                 analytics.trackEvent(category, action, label, value);
-                Hybreed.log("[Hybreed Analytics] Event Tracked: " + category + "-" + action + "-" + label + "-" + value);
+                Hybreed.log('[Hybreed Analytics] Event Tracked: ' + category + '-' + action + '-' + label + '-' + value);
             }
         },
 
         addCustomDimension: function (key, value, success, error) {
             if (Hybreed.mobile && Hybreed.online) {
                 analytics.addCustomDimension(key, value, success, error);
-                Hybreed.log("[Hybreed Analytics] Add custom dimension: " + key + " with value: " + value);
+                Hybreed.log('[Hybreed Analytics] Add custom dimension: ' + key + ' with value: ' + value);
             } else {
-                Hybreed.log("[Hybreed Analytics] Warning: No mobile environment detected. Cannot add custom dimension.");
+                Hybreed.log('[Hybreed Analytics] Warning: No mobile environment detected. Cannot add custom dimension.');
             }
         }
     };
@@ -456,29 +453,29 @@
     Hybreed.Push = {
 
         successHandler: function (message) {
-            Hybreed.log("[Hybreed Push Service] Registration Success: " + message);
+            Hybreed.log('[Hybreed Push Service] Registration Success: ' + message);
         },
 
         errorHandler: function (message) {
-            Hybreed.log("[Hybreed Push Service] Registration Failed: " + message);
+            Hybreed.log('[Hybreed Push Service] Registration Failed: ' + message);
 
         },
 
         onNotification: function (e) {
             // alert(e.alert);
-            //var notify = document.getElementById("notify");
+            //var notify = document.getElementById('notify');
             //notify.innerHTML = e.alert;
-            navigator.notification.alert(e.alert, function(){}, "Mensaje Recibido", "Aceptar");
+            navigator.notification.alert(e.alert, function(){}, 'Mensaje Recibido', 'Aceptar');
             alert(e.alert);
         },
 
         conf: null,
         
         configIOS: {
-            senderID: "",
-            pushServerURL: "",
-            variantID: "",
-            variantSecret: ""
+            senderID: '',
+            pushServerURL: '',
+            variantID: '',
+            variantSecret: ''
         },
 
         setConfigIOS: function (configIos) {
@@ -486,10 +483,10 @@
         },
 
         configAndroid: {
-            senderID: "",
-            pushServerURL: "",
-            variantID: "",
-            variantSecret: ""
+            senderID: '',
+            pushServerURL: '',
+            variantID: '',
+            variantSecret: ''
         },
 
         setConfigAndroid: function (configAndroid) {
@@ -497,19 +494,19 @@
         },
 
         init: function () {
-            console.log("initializing Push...");
+            console.log('initializing Push...');
 
             switch (Hybreed.platform){
-                case "ios":
+                case 'ios':
                     this.conf = this.configIOS;
                     this.register();
                     break;
-                case "android":
+                case 'android':
                     this.conf = this.configAndroid;
                     this.register();
                     break;
                 default :
-                    Hybreed.log("[Hybreed Push Service] WARNING: No configuration found for platform " + Hybreed.platform);
+                    Hybreed.log('[Hybreed Push Service] WARNING: No configuration found for platform ' + Hybreed.platform);
             }
         },
 
@@ -518,10 +515,10 @@
                 this.successHandler,
                 this.errorHandler,
                 {
-                    "badge": "true",
-                    "sound": "true",
-                    "alert": "true",
-                    ecb: "this.onNotification",
+                    'badge': 'true',
+                    'sound': 'true',
+                    'alert': 'true',
+                    ecb: 'this.onNotification',
                     pushConfig: this.conf
                 });
         }
