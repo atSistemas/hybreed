@@ -1,46 +1,98 @@
 .main {
-
   $header-size: 50px;
+  @include size(100%);
 
-  .header {
-    @include absolute(0, 0, auto, 0);
-    height: $header-size;
+  .menu {
     background: #DDD;
-    border-bottom: 1px solid silver;
+    border-right: 1px solid silver;
+  }
 
-    .button {
-      width: $header-size;
-      line-height: $header-size;
-      font-size: 25pt;
-      text-align: center;
+  .snap-content {
+    background: white;
+    overflow: hidden;
 
-      &.back {
-        display: none;
-        @include absolute(0, auto, 0, 0);
-      }
-    }
+    .header {
+      @include absolute(0, 0, auto, 0);
+      height: $header-size;
+      background: #DDD;
+      border-bottom: 1px solid silver;
+      box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.2);
 
-    .title {
-      @include absolute(0);
-      font-weight: bold;
-      line-height: $header-size;
-      padding: 0 10px;
-      text-transform: uppercase;
-      @include ellipsis();
-    }
-
-    &.with-back-button {
       .title {
-        left: $header-size;
+        @include absolute(auto, 0, 0, 0);
+        font-weight: bold;
+        line-height: $header-size;
+        padding: 0 10px;
+        text-transform: uppercase;
+        @include ellipsis();
       }
 
-      .button.back {
+      .button {
+        width: $header-size;
+        line-height: $header-size;
+        font-size: 20pt;
+        text-align: center;
+
+        &.snap-toggle,
+        &.left {
+          display: none;
+          @include absolute(auto, auto, 0, 0);
+        }
+
+        &.right {
+          display: none;
+          @include absolute(auto, 0, 0, auto);
+        }
+      }
+
+      &.with-left-button,
+      &.with-snap-toggle-button {
+        .title {
+          left: $header-size;
+        }
+      }
+
+      &.with-right-button {
+        .title {
+          right: $header-size;
+        }
+      }
+
+      &.with-snap-toggle-button .button.snap-toggle,
+      &.with-left-button .button.left,
+      &.with-right-button .button.right {
         display: block;
       }
     }
+
+    .content {
+      @include absolute($header-size, 0, 0, 0);
+    }
   }
 
-  .content {
-    @include absolute($header-size, 0, 0, 0);
+  &.no-header {
+    .header {
+      display: none;
+    }
+
+    .content {
+      @include absolute(0, 0, 0, 0);
+    }
+  }
+
+  &.ios {
+    $ios-status-bar-size: 20px;
+
+    .header {
+      height: $header-size + $ios-status-bar-size;
+    }
+
+    .content {
+      top: $header-size + $ios-status-bar-size;
+    }
+
+    .menu {
+      padding-top: $ios-status-bar-size;
+    }
   }
 }

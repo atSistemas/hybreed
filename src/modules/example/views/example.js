@@ -8,9 +8,9 @@ export default Marionette.View.extend({
         input: 'input'
     },
 
-    onAttach: function() {
-        this.ui.input.ionRangeSlider();
-    },
+    className: 'example',
 
-    className: 'example'
+    onAttach() {
+        this.ui.input.ionRangeSlider();
+    }
 });

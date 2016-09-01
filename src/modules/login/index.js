@@ -9,11 +9,9 @@ function start() {
 
 function showExampleView() {
     loginView = new LoginView();
-    MainController.show({
-        onBackPressed: false,
-        title: 'login',
-        view: loginView,
-        showHeader: false
+    MainController.showScreen({
+        type: 'no-header',
+        contentView: loginView
     });
     associateEventsLoginView();
 }

@@ -9,13 +9,16 @@ function start() {
 
 function showExampleView() {
     exampleView = new ExampleView();
-    MainController.show({
-        onBackPressed: () => {
-            MainController.returnLogin();
-        },
+    MainController.showScreen({
+        type: 'snap',
         title: 'Example',
-        view: exampleView,
-        showHeader: true
+        leftButtonOpts: {
+            class: 'fa fa-chevron-left',
+            callback() {
+                MainController.returnLogin();
+            }
+        },
+        contentView: exampleView
     });
     associateEventsExampleView();
 }

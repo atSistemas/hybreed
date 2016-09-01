@@ -6,7 +6,8 @@ var browserSync = require('browser-sync').create();
 gulp.task('browserSync', function() {
 
     browserSync.init({
-        server: 'www'
+        server: 'www',
+        notify: false
     });
 
     gulp.watch(['src/index.html', 'src/assets/**/*'], ['reloadCopyFiles']);

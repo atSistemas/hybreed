@@ -5,11 +5,10 @@ import MainView from './views/main';
 import {ExampleController, LoginController} from 'Modules';
 
 var mainView;
-var onBackPressed;
 
 function start() {
-    showMainView();
-    LoginController.start();
+    //LoginController.start();
+    ExampleController.start();
 }
 
 function startExample() {
@@ -20,27 +19,31 @@ function returnLogin() {
     LoginController.start();
 }
 
-function showMainView() {
-    mainView = new MainView();
+/*
+ options = {
+     type: string ('snap', 'normal', 'no-header')
+     title: string,
+     leftButtonOpts: {
+         class: string,
+         callback: function
+     },
+     rightButtonOpts: {
+         class: string,
+         callback: function
+     },
+     contentView: view
+ };
+ */
+
+function showScreen(options) {
+    mainView = new MainView(options);
     App.showView(mainView);
-}
-
-function show(params) {
-    mainView.toggleHeader(params.showHeader);
-    onBackPressed = params.onBackPressed;
-    mainView.toggleBackButton(onBackPressed);
-    mainView.setTitle(params.title);
-    mainView.getRegion('content').show(params.view);
-    associateEventsMainView();
-}
-
-function associateEventsMainView() {
-    mainView.on('backPressed', onBackPressed);
+    mainView.getRegion('content').show(options.contentView);
 }
 
 export default {
     start: start,
-    show: show,
+    showScreen: showScreen,
     startExample: startExample,
     returnLogin: returnLogin
 };

@@ -13,6 +13,15 @@
   }
 }
 
+@mixin size($width, $height: null) {
+  width: $width;
+  @if($height == null) {
+    height: $width;
+  } @else {
+    height: $height;
+  }
+}
+
 @mixin ellipsis() {
   white-space: nowrap;
   overflow: hidden;
