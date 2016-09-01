@@ -1,5 +1,5 @@
-import MainController from 'modules/main';
 import ExampleView from './views/example'
+import {Broker} from 'vendor/libs';
 
 var exampleView;
 
@@ -8,24 +8,29 @@ function start() {
 }
 
 function showExampleView() {
+
     exampleView = new ExampleView();
-    MainController.showScreen({
+
+    Broker.channel.trigger('main:showScreen', {
         type: 'snap',
         title: 'Example',
         leftButtonOpts: {
             class: 'fa fa-chevron-left',
             callback() {
-                MainController.returnLogin();
+                Broker.channel.trigger('login:start');
             }
         },
         contentView: exampleView
     });
-    associateEventsExampleView();
 }
 
-function associateEventsExampleView() {
+//
+// API
+//
 
-}
+Broker.channel.on({
+    'example:start': start
+});
 
 export default {
     start: start

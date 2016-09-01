@@ -1,6 +1,5 @@
-import Example from 'modules/example';
-import Login from 'modules/login';
+import ExampleController from 'modules/example';
+import LoginController from 'modules/login';
+import MainController from 'modules/main';
 
-
-export const ExampleController = Example;
-export const LoginController = Login;
+export {ExampleController, LoginController, MainController};

@@ -1,5 +1,5 @@
-import MainController from 'modules/main';
 import LoginView from './views/login'
+import {Broker} from 'vendor/libs';
 
 var loginView;
 
@@ -8,21 +8,28 @@ function start() {
 }
 
 function showExampleView() {
+
     loginView = new LoginView();
-    MainController.showScreen({
+
+    Broker.channel.trigger('main:showScreen', {
         type: 'no-header',
         contentView: loginView
     });
-    associateEventsLoginView();
-}
 
-function associateEventsLoginView() {
-    loginView.on('accessButton', function() {
-        console.log(loginView.ui.user.val());
-        console.log(loginView.ui.pw.val());
-        MainController.startExample();
+    loginView.on({
+        accessButton() {
+            Broker.channel.trigger('example:start');
+        }
     });
 }
+
+//
+// API
+//
+
+Broker.channel.on({
+    'login:start': start
+});
 
 export default {
     start: start

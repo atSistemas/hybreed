@@ -4,7 +4,7 @@ export default Marionette.View.extend({
 
     template: _.template(Template),
 
-    className: 'main ios',
+    className: 'main',
 
     ui: {
         header: '.header',

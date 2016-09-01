@@ -1,22 +1,11 @@
 import App from 'common/app';
 import MainView from './views/main';
-//import ExampleController from 'modules/example';
-//import LoginController from 'modules/login';
-import {ExampleController, LoginController} from 'Modules';
+import {Broker} from 'vendor/libs';
 
 var mainView;
 
 function start() {
-    //LoginController.start();
-    ExampleController.start();
-}
-
-function startExample() {
-    ExampleController.start();
-}
-
-function returnLogin() {
-    LoginController.start();
+    Broker.channel.trigger('login:start');
 }
 
 /*
@@ -41,9 +30,16 @@ function showScreen(options) {
     mainView.getRegion('content').show(options.contentView);
 }
 
+//
+// API
+//
+
+Broker.channel.on({
+    'main:start': start,
+    'main:showScreen': showScreen
+});
+
 export default {
     start: start,
-    showScreen: showScreen,
-    startExample: startExample,
-    returnLogin: returnLogin
+    showScreen: showScreen
 };

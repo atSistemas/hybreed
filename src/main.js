@@ -1,12 +1,12 @@
 import 'vendor/libs';
+import 'modules'
 import App from 'common/app';
-import MainController from 'modules/main';
+import {Broker} from 'vendor/libs';
 
 $(document).ready(() => {
-    console.log('Document ready!');
     window.Hybreed.start(true)
       .then(function(){
           App.start();
-          MainController.start();
+          Broker.channel.trigger('main:start');
       });
 });
