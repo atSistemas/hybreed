@@ -11,7 +11,7 @@ function showExampleView() {
 
     loginView = new LoginView();
 
-    Broker.channel.trigger('main:showScreen', {
+    Broker.channel.trigger('screen:start', {
         type: 'no-header',
         contentView: loginView
     });

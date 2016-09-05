@@ -1,11 +1,12 @@
 import 'vendor/libs';
-import 'modules'
+import 'modules/modules';
 import App from 'common/app';
 import {Broker} from 'vendor/libs';
 
 $(document).ready(() => {
+
     window.Hybreed.start(true)
-      .then(function(){
+      .then(() => {
           App.start();
           Broker.channel.trigger('main:start');
       });

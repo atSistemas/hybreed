@@ -11,7 +11,7 @@ function showExampleView() {
 
     exampleView = new ExampleView();
 
-    Broker.channel.trigger('main:showScreen', {
+    Broker.channel.trigger('screen:start', {
         type: 'snap',
         title: 'Example',
         leftButtonOpts: {

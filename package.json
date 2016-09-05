@@ -1,7 +1,7 @@
 {
-  "name": "ModernHybreed",
+  "name": "Hybreed",
   "version": "1.0.0",
-  "description": "Modern Hybreed approach",
+  "description": "Hybreed",
   "private": true,
   "scripts": {
     "develop": "gulp develop",

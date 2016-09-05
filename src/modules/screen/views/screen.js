@@ -1,10 +1,10 @@
-import Template from './main.html'
+import Template from './screen.html'
 
 export default Marionette.View.extend({
 
     template: _.template(Template),
 
-    className: 'main',
+    className: 'screen',
 
     ui: {
         header: '.header',

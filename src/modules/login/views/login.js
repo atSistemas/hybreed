@@ -4,6 +4,8 @@ export default Marionette.View.extend({
 
     template: _.template(Template),
 
+    className: 'login',
+
     ui: {
         user: '.user',
         pw: '.pw',
@@ -15,9 +17,7 @@ export default Marionette.View.extend({
         'click .button': 'accessButton'
     },
 
-    onAttach: function() {
+    onAttach() {
         
-    },
-
-    className: 'login'
+    }
 });

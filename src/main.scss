@@ -3,7 +3,6 @@
 
 @import 'fonts/fonts';
 
-@import 'vendor/libs';
+@import 'modules/modules';
 
-@import 'modules/main/views/main';
-@import 'modules/example/views/example';
+@import 'vendor/libs';

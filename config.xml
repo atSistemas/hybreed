@@ -7,9 +7,8 @@
         xmlns:cdv="http://cordova.apache.org/ns/1.0"
         xmlns:rim="http://www.blackberry.com/ns/widgets">
     <name>Hybreed</name>
-    <description>Hybreed Mobile</description>
+    <description>Hybreed</description>
     <author email="cem@atsistemas.com" href="http://www.atsistemas.com">atSistemas S.A.</author>
-
     <access origin="*"/>
     <content src="index.html"/>
     <preference name="Fullscreen" value="true"/>
@@ -41,12 +40,10 @@
     </platform>
     <engine name="ios" spec="^3.8.0"/>
     <engine name="android" spec="^5.0.0"/>
-    <plugin name="cordova-plugin-console" spec="^1.0.0"/>
-    <plugin name="cordova-plugin-device" spec="^1.0.0"/>
-    <plugin name="cordova-plugin-dialogs" spec="^1.1.0"/>
-    <plugin name="cordova-plugin-network-information" spec="^1.0.0"/>
-    <plugin name="cordova-plugin-splashscreen" spec="^2.0.0"/>
-    <plugin name="cordova-plugin-whitelist" spec="^1.0.0"/>
-
-
+    <plugin name="cordova-plugin-console" spec="1.0.x"/>
+    <plugin name="cordova-plugin-device" spec="1.1.x"/>
+    <plugin name="cordova-plugin-dialogs" spec="1.2.x"/>
+    <plugin name="cordova-plugin-network-information" spec="1.2.x"/>
+    <plugin name="cordova-plugin-splashscreen" spec="4.0.x"/>
+    <plugin name="cordova-plugin-whitelist" spec="1.2.x"/>
 </widget>
