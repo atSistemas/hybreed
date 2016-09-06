@@ -8,13 +8,11 @@ export default Marionette.View.extend({
 
     ui: {
         user: '.user',
-        pw: '.pw',
-        remember: '.remember-checker',
-        button: '.button'
+        password: '.password',
     },
 
     triggers: {
-        'click .button': 'accessButton'
+        'click button': 'loginPressed'
     },
 
     onAttach() {

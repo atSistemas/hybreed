@@ -4,3 +4,58 @@ html, body, #main {
   margin: 0;
   font-family: Lato;
 }
+
+* {
+    box-sizing: border-box;
+}
+
+//Inputs
+input[type="text"],
+input[type="password"] {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #555;
+}
+
+//Buttons
+button {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+  color: #333;
+
+  &[disabled] {
+    opacity: 0.65;
+  }
+
+  &.danger {
+    color: white;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+  }
+
+  &.primary {
+    color: white;
+    background-color: #286090;
+    border-color: #204d74;
+  }
+}
+
+//Input with icon
+.input-with-icon {
+  position: relative;
+  margin: 15px 0;
+
+  i {
+    @include absolute(5px, auto, auto, 7px);
+    color: silver;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    padding-left: 25px;
+    width: 100%;
+  }
+}

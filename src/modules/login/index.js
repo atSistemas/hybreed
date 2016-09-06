@@ -17,7 +17,7 @@ function showExampleView() {
     });
 
     loginView.on({
-        accessButton() {
+        loginPressed() {
             Broker.channel.trigger('example:start');
         }
     });
