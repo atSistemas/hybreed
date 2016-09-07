@@ -17,7 +17,8 @@ function showExampleView() {
     });
 
     loginView.on({
-        loginPressed() {
+        login(user, password) {
+            console.log(`Login with ${user} ${password}`);
             Broker.channel.trigger('example:start');
         }
     });

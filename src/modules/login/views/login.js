@@ -8,14 +8,20 @@ export default Marionette.View.extend({
 
     ui: {
         user: '.user',
-        password: '.password',
+        password: '.password'
     },
 
-    triggers: {
-        'click button': 'loginPressed'
+    events: {
+        'click button': 'loginButtonPressed'
     },
 
     onAttach() {
         
+    },
+
+    loginButtonPressed() {
+        this.trigger('login',
+            this.ui.user.val().trim(),
+            this.ui.password.val().trim());
     }
 });
