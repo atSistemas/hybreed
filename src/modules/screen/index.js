@@ -16,7 +16,8 @@ var screenView;
         class: string,
         callback: function
     },
-    contentView: view
+    contentView: view,
+    menuView: view
  };
  */
 
@@ -24,6 +25,10 @@ function start(options) {
     screenView = new ScreenView(options);
     App.showView(screenView);
     screenView.getRegion('content').show(options.contentView);
+
+    if(options.menuView) {
+        screenView.getRegion('menu').show(options.menuView);
+    }
 }
 
 //
@@ -35,5 +40,5 @@ Broker.channel.on({
 });
 
 export default {
-    start: start
+    start
 };

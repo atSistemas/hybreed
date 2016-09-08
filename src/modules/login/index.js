@@ -4,10 +4,10 @@ import {Broker} from 'vendor/libs';
 var loginView;
 
 function start() {
-    showExampleView();
+    showLoginView();
 }
 
-function showExampleView() {
+function showLoginView() {
 
     loginView = new LoginView();
 
@@ -19,9 +19,19 @@ function showExampleView() {
     loginView.on({
         login(user, password) {
             console.log(`Login with ${user} ${password}`);
-            Broker.channel.trigger('example:start');
+            localStorage.login = user;
+            Broker.channel.trigger('itemsList:start');
         }
     });
+}
+
+function getUserLogged() {
+    return localStorage.login;
+}
+
+function logout() {
+    delete localStorage.login;
+    showLoginView();
 }
 
 //
@@ -29,9 +39,16 @@ function showExampleView() {
 //
 
 Broker.channel.on({
-    'login:start': start
+    'login:start': start,
+    'login:logout': logout
+});
+
+Broker.channel.reply({
+    'login:getUserLogged': getUserLogged
 });
 
 export default {
-    start: start
+    start,
+    getUserLogged,
+    logout
 };

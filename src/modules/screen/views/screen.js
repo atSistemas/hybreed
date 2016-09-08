@@ -1,3 +1,4 @@
+import {_ ,Marionette} from 'vendor/libs';
 import Template from './screen.html'
 
 export default Marionette.View.extend({
@@ -22,7 +23,7 @@ export default Marionette.View.extend({
     },
 
     regions: {
-        header: '.header',
+        menu: '.menu',
         content: '.content'
     },
 

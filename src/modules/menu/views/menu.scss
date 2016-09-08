@@ -1,0 +1,24 @@
+.menu {
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    $li-height: 50px;
+
+    li {
+      position: relative;
+      line-height: $li-height;
+      border-bottom: 1px solid silver;
+      padding: 0 15px 0 40px;
+      background: #CFCFCF;
+
+      i {
+        @include absolute(0, auto, auto, 10px);
+        line-height: $li-height;
+        font-size: 14pt;
+      }
+    }
+  }
+}

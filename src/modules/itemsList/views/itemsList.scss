@@ -1,0 +1,20 @@
+.items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  $li-height: 50px;
+
+  li {
+    position: relative;
+    line-height: $li-height;
+    border-bottom: 1px solid silver;
+    padding: 0 15px;
+
+    i {
+      @include absolute(0, 15px, auto, auto);
+      line-height: $li-height;
+      font-size: 14pt;
+    }
+  }
+}

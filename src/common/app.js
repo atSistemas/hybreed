@@ -1,3 +1,5 @@
+import {Marionette, Hybreed} from 'vendor/libs';
+
 var app = new Marionette.Application({
     region: '#main'
 });
@@ -8,6 +10,6 @@ app.on('initialize:after', function () {
     }
 });
 
-window.Hybreed.UI.createSpinner('main');
+Hybreed.UI.createSpinner('main');
 
 export default app;
