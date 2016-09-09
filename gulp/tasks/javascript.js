@@ -35,8 +35,8 @@ gulp.task('javascript', ['lint'], function() {
         });
 
     if(global.isDebug) {
+        gulp.watch('src/**/*.js', ['lint']);
         bundler.on('update', javascript);
-        bundler.on('update', lint);
     }
 
     return javascript();
