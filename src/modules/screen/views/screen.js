@@ -1,4 +1,4 @@
-import {_ ,Marionette} from 'vendor/libs';
+import {_, Marionette, Snap} from 'vendor/libs';
 import Template from './screen.html'
 
 export default Marionette.View.extend({

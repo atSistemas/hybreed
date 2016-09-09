@@ -11,7 +11,7 @@ function showLoginView() {
 
     loginView = new LoginView();
 
-    Broker.channel.trigger('screen:start', {
+    Broker.channel('screen').trigger('start', {
         type: 'no-header',
         contentView: loginView
     });
@@ -20,7 +20,7 @@ function showLoginView() {
         login(user, password) {
             console.log(`Login with ${user} ${password}`);
             localStorage.login = user;
-            Broker.channel.trigger('itemsList:start');
+            Broker.channel('itemsList').trigger('start');
         }
     });
 }
@@ -38,13 +38,13 @@ function logout() {
 // API
 //
 
-Broker.channel.on({
-    'login:start': start,
-    'login:logout': logout
+Broker.channel('login').on({
+    start,
+    logout
 });
 
-Broker.channel.reply({
-    'login:getUserLogged': getUserLogged
+Broker.channel('login').reply({
+    getUserLogged
 });
 
 export default {

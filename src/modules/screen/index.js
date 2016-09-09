@@ -35,8 +35,8 @@ function start(options) {
 // API
 //
 
-Broker.channel.on({
-    'screen:start': start
+Broker.channel('screen').on({
+    start
 });
 
 export default {

@@ -8,6 +8,6 @@ $(document).ready(() => {
     Hybreed.start(true)
       .then(() => {
           App.start();
-          Broker.channel.trigger('main:start');
+          Broker.channel('main').trigger('start');
       });
 });

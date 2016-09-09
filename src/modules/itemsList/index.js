@@ -18,15 +18,15 @@ function showExampleView() {
     itemsListView.on({
 
         'childview:itemPressed': (view) => {
-            Broker.channel.trigger('example:start', view.model);
+            Broker.channel('example').trigger('start', view.model);
         }
     });
 
-    Broker.channel.trigger('screen:start', {
+    Broker.channel('screen').trigger('start', {
         type: 'snap',
         title: 'Items List',
         contentView: itemsListView,
-        menuView: Broker.channel.request('menu:getView')
+        menuView: Broker.channel('menu').request('getView')
     });
 }
 
@@ -34,8 +34,8 @@ function showExampleView() {
 // API
 //
 
-Broker.channel.on({
-    'itemsList:start': start
+Broker.channel('itemsList').on({
+    start
 });
 
 export default {

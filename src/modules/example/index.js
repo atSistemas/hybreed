@@ -13,13 +13,13 @@ function showExampleView(model) {
         model: model
     });
 
-    Broker.channel.trigger('screen:start', {
+    Broker.channel('screen').trigger('start', {
         type: 'normal',
         title: 'Example',
         leftButtonOpts: {
             class: 'fa fa-chevron-left',
             callback() {
-                Broker.channel.trigger('itemsList:start');
+                Broker.channel('itemsList').trigger('start');
             }
         },
         contentView: exampleView
@@ -30,8 +30,8 @@ function showExampleView(model) {
 // API
 //
 
-Broker.channel.on({
-    'example:start': start
+Broker.channel('example').on({
+    start
 });
 
 export default {

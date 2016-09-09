@@ -1,10 +1,10 @@
 import {Broker} from 'vendor/libs';
 
 function start() {
-    if(Broker.channel.request('login:getUserLogged')) {
-        Broker.channel.trigger('itemsList:start');
+    if(Broker.channel('login').request('getUserLogged')) {
+        Broker.channel('itemsList').trigger('start');
     } else {
-        Broker.channel.trigger('login:start');
+        Broker.channel('login').trigger('start');
     }
 }
 
@@ -12,8 +12,8 @@ function start() {
 // API
 //
 
-Broker.channel.on({
-    'main:start': start
+Broker.channel('main').on({
+    start
 });
 
 export default {

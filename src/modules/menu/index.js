@@ -8,7 +8,7 @@ function getView() {
     menuView.on({
         logoutPressed() {
             if(confirm('Are you sure you want to logout?')) {
-                Broker.channel.trigger('login:logout');
+                Broker.channel('login').trigger('logout');
             }
         }
     });
@@ -20,8 +20,8 @@ function getView() {
 // API
 //
 
-Broker.channel.reply({
-    'menu:getView': getView
+Broker.channel('menu').reply({
+    getView
 });
 
 export default {
