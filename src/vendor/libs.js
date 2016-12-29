@@ -6,7 +6,8 @@ import Broker from 'backbone.radio';
 import Hybreed from '~/src/vendor/hybreed/hybreed';
 import Snap from 'snapjs';
 
-window.$ = window.jQuery = $;
+window.$ = window.jQuery = global.jQuery = $;
+
 
 require('ion-rangeslider');
 

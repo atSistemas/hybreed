@@ -4,17 +4,18 @@ var gulp = require('gulp'),
 
 
 gulp.task('test', function() {
-    return gulp.src(['test/**/es6*.js'])
+    return gulp.src(['test/**/*.spec.js'])
         .pipe(mocha({
             compilers:babel,
             require:['jsdom-global/register']
         }));
 });
 
-gulp.task('test2', function() {
+gulp.task('testFromSource', function() {
     return gulp.src(['src/**/*.spec.js'])
         .pipe(mocha({
-            compilers:babel
+            compilers:babel,
+            require:['jsdom-global/register']
         }));
 });
 
@@ -23,11 +24,12 @@ gulp.task('tdd', function() {
 });
 
 gulp.task('tdd-single', function() {
-    return gulp.watch('test/**/*.js')
+    return gulp.watch('test/**/*.spec.js')
         .on('change', function(file) {
             gulp.src(file.path)
                 .pipe(mocha({
-                    compilers: babel
+                    compilers: babel,
+                    require:['jsdom-global/register']
                 }))
         });
 });

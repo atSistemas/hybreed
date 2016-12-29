@@ -1,4 +1,4 @@
-import {Broker} from 'vendor/libs';
+import {Broker} from '~/src/vendor/libs';
 
 function start() {
     if(Broker.channel('login').request('getUserLogged')) {
