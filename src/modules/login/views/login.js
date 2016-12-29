@@ -1,4 +1,4 @@
-import {_, Marionette} from 'vendor/libs';
+import {_, Marionette} from '~/src/vendor/libs';
 import Template from './login.html'
 
 export default Marionette.View.extend({
@@ -17,7 +17,7 @@ export default Marionette.View.extend({
     },
 
     onAttach() {
-        
+
     },
 
     loginButtonPressed() {

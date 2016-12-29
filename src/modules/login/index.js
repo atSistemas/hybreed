@@ -1,5 +1,5 @@
 import LoginView from './views/login'
-import {Broker} from 'vendor/libs';
+import {Broker} from '~/src/vendor/libs';
 
 var loginView;
 

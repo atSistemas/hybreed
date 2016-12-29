@@ -6,14 +6,16 @@
   "scripts": {
     "develop": "gulp develop",
     "production": "gulp production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
   },
-  "author": "Jose Antonio Postigo Gutierrez",
-  "license": "ISC",
+  "author": "atSistemas",
+  "license": "MIT",
   "dependencies": {
     "add-clear": "^2.0.6",
     "babel-eslint": "^6.1.2",
     "babel-preset-es2015": "^6.9.0",
+    "babel-register": "^6.18.0",
+    "babel-root-import": "^4.1.5",
     "babelify": "^7.3.0",
     "backbone": "^1.3.3",
     "backbone.marionette": "^3.0.0",
@@ -25,6 +27,7 @@
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
     "gulp-if": "^2.0.1",
+    "gulp-mocha": "^3.0.1",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.4",
@@ -40,5 +43,27 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.20.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-root-import": "^4.1.5",
+    "chai": "^3.5.0",
+    "isparta": "^4.0.0",
+    "istanbul": "^0.4.5",
+    "jsdom": "9.9.1",
+    "jsdom-global": "2.1.1",
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.6"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      [
+        "babel-root-import"
+      ]
+    ]
   }
 }
