@@ -2,4 +2,5 @@ node_modules/
 .idea/
 www/*
 !.gitkeep
-coverage/
+test/coverage/
+test/report/

@@ -6,13 +6,16 @@ var gulp = require('gulp'),
 
     exec = require('gulp-exec'),
     del = require('del'),
-    coverageEnforcer = require('gulp-istanbul-enforcer');
+    coverageEnforcer = require('gulp-istanbul-enforcer'),
+
+    plato = require('gulp-plato');
 
 
 var paths = {
   scripts:  ['src/**/*.js'],
   tests:    ['test/**/*.spec.js'],
-  coverage: 'coverage/'
+  coverage: 'test/coverage/',
+  report: 'test/report/',
 };
 
 // Import dom util to avoid errors about window, navigator... not found
@@ -21,8 +24,8 @@ var dom = require('../../test/utils/dom');
 
 // INTERNAL TASKS
 //
-gulp.task('clean-coverage', function(cb) {
-    return del(['coverage'], cb);
+gulp.task('clean-coverage-report', function(cb) {
+    return del([paths.coverage, paths.report], cb);
 });
 
 
@@ -63,8 +66,13 @@ gulp.task('tdd-single', function() {
 });
 
 
+gulp.task('code-report', function () {
+    gulp.src(paths.scripts)
+        .pipe(plato(paths.report))
+        .pipe(exec('echo The code report has been generated. See report directory for details.'));
+});
 
-gulp.task('test-coverage', ['clean-coverage'], function(cb) {
+gulp.task('test-coverage', ['clean-coverage-report', 'code-report'], function(cb) {
     var coverageDir = paths.coverage;
     gulp.src(paths.scripts)
         .pipe(istanbul({ // Covering files
