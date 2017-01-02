@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     isparta = require('isparta'),
 
     exec = require('gulp-exec'),
+    console = require('better-console'),
     del = require('del'),
     coverageEnforcer = require('gulp-istanbul-enforcer'),
 
@@ -26,6 +27,10 @@ var dom = require('../../test/utils/dom');
 //
 gulp.task('clean-coverage-report', function(cb) {
     return del([paths.coverage, paths.report], cb);
+});
+
+gulp.task('clearScreen', function() {
+    console.clear();
 });
 
 
@@ -51,7 +56,7 @@ gulp.task('testFromSource', function() {
 });
 
 gulp.task('tdd', function() {
-    return gulp.watch([paths.scripts,paths.tests], ['test']);
+    return gulp.watch([paths.scripts,paths.tests], ['clearScreen','test']);
 });
 
 gulp.task('tdd-single', function() {
