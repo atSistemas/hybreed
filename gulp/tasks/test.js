@@ -22,6 +22,8 @@ var paths = {
 // Import dom util to avoid errors about window, navigator... not found
 var dom = require('../../test/utils/dom');
 
+console.log("LOCAL STORAGE");
+//console.log(window.localStorage);
 
 // INTERNAL TASKS
 //

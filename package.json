@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.20.0",
+    "babel-plugin-transform-html-import-to-string": "0.0.1",
     "babel-preset-es2015": "^6.18.0",
     "babel-root-import": "^4.1.5",
     "better-console": "^0.2.4",
@@ -60,6 +61,7 @@
     "jsdom": "9.9.1",
     "jsdom-global": "2.1.1",
     "mocha": "^3.2.0",
+    "node-localstorage": "^1.3.0",
     "sinon": "^1.17.6",
     "sinon-chai": "^2.8.0"
   },
@@ -69,7 +71,8 @@
     ],
     "plugins": [
       [
-        "babel-root-import"
+        "babel-root-import",
+        "transform-html-import-to-string"
       ]
     ]
   }

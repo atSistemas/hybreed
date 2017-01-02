@@ -1,5 +1,5 @@
 import {_, Marionette} from '~/src/vendor/libs';
-import Template from './login.html'
+import Template from './login.html';
 
 export default Marionette.View.extend({
 
