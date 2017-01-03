@@ -9,7 +9,6 @@ import * as Libs from '~/src/vendor/libs'
 import Login from '~/src/modules/login/index';
 
 
-
 describe('LOGIN MODULE', () => {
   var testContext = {};
   var logInfo;
@@ -42,5 +41,33 @@ describe('LOGIN MODULE', () => {
     expect(testContext.mainModule.logout).to.exist;
     testContext.mainModule.logout.should.be.a('function');
   });
+
+  it('should return logged user from localStorage', () => {
+    localStorage.login = "John Doe Garcia";
+    let usr = testContext.broker.channel('login').request('getUserLogged');
+    expect(usr).to.equal('John Doe Garcia');
+
+  });
+
+  it('should perform logout and show login view', () => {
+    // Prepare spy to register login view loading
+    var spy = sinon.spy();
+    testContext.broker.channel('screen').on('start', spy);
+    // Call logout
+    testContext.broker.channel('login').trigger('logout');
+    // Expect
+    expect(localStorage.login).to.be.undefined;
+    spy.should.have.been.called;
+  });
+
+  it('should register a login call and show itemsList', () => {
+    // Having
+
+    // Then
+
+    // Expect
+
+  })
+
 
 });

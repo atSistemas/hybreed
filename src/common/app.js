@@ -1,4 +1,4 @@
-import {Marionette, Hybreed} from 'vendor/libs';
+import {Marionette, Hybreed} from '~/src/vendor/libs';
 
 var app = new Marionette.Application({
     region: '#main'
