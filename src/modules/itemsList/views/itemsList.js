@@ -1,4 +1,4 @@
-import {_, Marionette} from 'vendor/libs';
+import {_, Marionette} from '~/src/vendor/libs';
 import ItemTemplate from './item.html';
 import ItemsListTemplate from './itemsList.html';
 

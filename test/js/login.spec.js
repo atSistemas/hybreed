@@ -5,13 +5,25 @@ chai.should();
 var expect = chai.expect;
 chai.use(sinonChai);
 
+import App from '~/src/common/app';
+
 import * as Libs from '~/src/vendor/libs'
 import Login from '~/src/modules/login/index';
 
+import LoginView from '~/src/modules/login/views/login'
 
 describe('LOGIN MODULE', () => {
   var testContext = {};
   var logInfo;
+
+  before(() => {
+    var mainDom = '<div id="main"></div>';
+    document.body.insertAdjacentHTML('afterbegin', mainDom);
+    App.start();
+
+      let loginView = new LoginView();
+      loginView.render();
+  });
 
   beforeEach(() => {
       logInfo = null;
@@ -25,7 +37,7 @@ describe('LOGIN MODULE', () => {
       console.log(logInfo);
       console.log("||--------------||");
     }
-  })
+  });
 
   it('should return a start function', () => {
     expect(testContext.mainModule.start).to.exist;
@@ -58,16 +70,21 @@ describe('LOGIN MODULE', () => {
     // Expect
     expect(localStorage.login).to.be.undefined;
     spy.should.have.been.called;
+    expect($(".login").length).to.equal(1);
   });
 
   it('should register a login call and show itemsList', () => {
     // Having
-
+    var spy = sinon.spy();
+    testContext.broker.channel('itemsList').on('start', spy);
     // Then
-
+    testContext.broker.channel('login').trigger("start");
+    $('.user').val('John Doe Garcia');
+    $('.password').val('p4Ssw0rD');
+    $('.primary').click();
     // Expect
-
-  })
+    spy.should.have.been.called;
+  });
 
 
 });

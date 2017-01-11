@@ -1,5 +1,5 @@
 import MenuView from './views/menu'
-import {Broker} from 'vendor/libs';
+import {Broker} from '~/src/vendor/libs';
 
 function getView() {
 

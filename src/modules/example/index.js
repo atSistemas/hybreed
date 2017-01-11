@@ -1,5 +1,5 @@
 import ExampleView from './views/example'
-import {Broker} from 'vendor/libs';
+import {Broker} from '~/src/vendor/libs';
 
 var exampleView;
 

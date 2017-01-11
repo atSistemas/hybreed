@@ -1,4 +1,4 @@
-import {_, Marionette} from 'vendor/libs';
+import {_, Marionette} from '~/src/vendor/libs';
 import Template from './example.html'
 
 export default Marionette.View.extend({

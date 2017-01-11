@@ -1,5 +1,5 @@
 import ItemsListView from './views/itemsList'
-import {Backbone, Broker} from 'vendor/libs';
+import {Backbone, Broker} from '~/src/vendor/libs';
 
 var itemsListView;
 

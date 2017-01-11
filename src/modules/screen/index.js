@@ -1,6 +1,6 @@
-import App from 'common/app';
+import App from '~/src/common/app';
 import ScreenView from './views/screen';
-import {Broker} from 'vendor/libs';
+import {Broker} from '~/src/vendor/libs';
 
 var screenView;
 
