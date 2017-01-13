@@ -1,18 +1,5 @@
-//TODO Cambiar copyright
-/*
- *
- * This file is part of the Hybreed package.
- * @license Copyright (c) 2010-2014, atSistemas S.A. All Rights Reserved.
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- *
- */
-
-
 (function(factory) {
-    // Establish the root object, `window` (`self`) in the browser, or `global` on the server.
-    // We use `self` instead of `window` for `WebWorker` support.
+    
     var root = (typeof self == 'object' && self.self === self && self) ||
         (typeof global == 'object' && global.global === global && global);
 
