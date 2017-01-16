@@ -5,11 +5,9 @@ import Marionette from 'backbone.marionette';
 import Broker from 'backbone.radio';
 import Hybreed from '~/src/vendor/hybreed/hybreed';
 import Snap from 'snapjs';
+import ionRangeslider from 'ion-rangeslider';
 
 window.$ = window.jQuery = global.jQuery = $;
-
-
-require('ion-rangeslider');
 
 export {
     _,
@@ -17,5 +15,6 @@ export {
     Marionette,
     Broker,
     Hybreed,
-    Snap
+    Snap,
+    ionRangeslider
 };
