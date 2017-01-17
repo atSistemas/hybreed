@@ -194,35 +194,34 @@ Also, includes a Hybreed library with some useful functions to develop a mobile 
 
 This library includes some useful functions to develop a mobile application. This functions are:
 
-* init
-* start
-* checkNet
-* getLocation
-* getPlatform
-* millisecondsToTime
-* detectDevice
-* isLandscapedTablet
-* getPressEvent
-* isIOS
-* isAndroid
+* init: Initialize the library parameters.
+* start: Sets the environment to perform different actions over native device.
+* checkNet: Checks if the device has network connection
+* getLocation: Gets the device's location.
+* getPlatform: Gets the device platform (Android, iOS, Windows...)
+* millisecondsToTime: Converts a date on milliseconds to a "normal" date.
+* detectDevice: Returns if the device it's a phone or a tablet.
+* isLandscapedTablet: Detects if the device it's a landscape tablet.
+* getPressEvent: Gets the type of press event, depending on de OS.
+* isIOS: Checks if the device is iOS.
+* isAndroid: Checks if the device is iOS.
 * UI
-    * generateScroll
-    * collect
-    * createSpinner
-    * showSpinner
-    * hideSpinner
-    * addClearButton
-    * toggleInput
+    * generateScroll: Sets a view scroll, using iScroll library if necessary.
+    * createSpinner: Creates a spinner to be used through the application on loading times.
+    * showSpinner: Shows the created spinner.
+    * hideSpinner: Hides the created spinner.
+    * addClearButton: Creates a X to show on forms, and clear it.
+    * toggleInput: Adds or removes a CSS class.
 * Analytics
-    * setTrackingID
-    * trackView
-    * trackEvent
-    * addCustomDimension
+    * setTrackingID: Sets the Google Analytics tracking ID.
+    * trackView: Tracks a view.
+    * trackEvent: Tracks an event.
+    * addCustomDimension: Adds a custom metric.
 * Push
-    * onNotification
-    * setConfigIOS
-    * setConfigAndroid
-    * init
+    * onNotification: Sets the behaviour when a push notification arrives.
+    * setConfigIOS: Sets the configuration parameters for iOS push notifications.
+    * setConfigAndroid: Sets the configuration parameters for Android push notifications.
+    * init: Initialize the application push notifications settings, with the parameters set on the configuration method.
 
 #### Fonts
 
@@ -239,7 +238,46 @@ This views, in general, are formed by one or more than one html, a scss and a ja
 
 #### Broker
 
-The communication between views it's made through the Backbone Broker.
+The communication between views it's made through the Backbone Broker. It uses an event system to communicate different contexts or views.
+
+To use this Broker, it's necessary to import it on every module controller header, as Backbone itself, along all other libraries suitable for use on that module.
+
+```
+import {Backbone, Broker} from '~/src/vendor/libs';
+```
+
+After that, to declare functions using the Backbone, it's necessary to do through a channel with the name of the module, so can be accessed from other modules or contexts.
+
+```
+Broker.channel('<module>')
+```
+
+Those functions that can be used with Broker are:
+
+* on: With this method the channel register which functions will be called on a trigger event.
+```
+Broker.channel('<module>').on({
+    <function to execute on trigger event>,
+    <function to execute on trigger event>,
+    ...
+});
+```
+* trigger: Triggers the execution of a function declared on a channel thorough an *on*. The function declared in *on* method to execute it's the one with the same name invoked on the *trigger* method.
+```
+Broker.channel('<module>').trigger('<function name>');
+```
+* reply: The channel registers function to get information regarding it's view.
+```
+Broker.channel('<module>').reply({
+    <function to execute on request event>,
+    <function to execute on request event>,
+    ...
+});
+```
+* request: Triggers the execution of a function declared on a channel thorough an *replay*, to get some information. The function to execute it's the one with the same name invoked on the *reply* method.
+```
+Broker.channel('<module>').request('<function name>');
+```
 
 #### Screen
 
