@@ -3,7 +3,7 @@ import $ from 'jquery';
 import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
 import Broker from 'backbone.radio';
-import Hybreed from '~/src/vendor/hybreed/hybreed';
+import Hybreed from 'mhyc';
 import Snap from 'snapjs';
 import ionRangeslider from 'ion-rangeslider';
 

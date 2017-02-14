@@ -2,7 +2,6 @@
   "name": "Hybreed",
   "version": "1.0.0",
   "description": "Hybreed",
-  "private": true,
   "scripts": {
     "develop": "gulp develop",
     "production": "gulp production",
@@ -35,6 +34,7 @@
     "ion-rangeslider": "^2.1.4",
     "iscroll": "^5.2.0",
     "jquery": "^3.0.0",
+    "mhyc": "^1.0.0",
     "run-sequence": "^1.2.2",
     "snapjs": "^1.2.1",
     "spin": "^0.0.1",

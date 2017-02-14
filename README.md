@@ -188,9 +188,9 @@ export {
 };
 ```
 
-Also, includes a Hybreed library with some useful functions to develop a mobile application.
+#### MhyC Library
 
-#### Hybreed Library
+The framework uses the MhyC (Mobile Hybreed Core) library tools exported as Hybreed.
 
 This library includes some useful functions to develop a mobile application. This functions are:
 
@@ -204,7 +204,7 @@ This library includes some useful functions to develop a mobile application. Thi
 * isLandscapedTablet: Detects if the device it's a landscape tablet.
 * getPressEvent: Gets the type of press event, depending on de OS.
 * isIOS: Checks if the device is iOS.
-* isAndroid: Checks if the device is iOS.
+* isAndroid: Checks if the device is Android.
 * UI
     * generateScroll: Sets a view scroll, using iScroll library if necessary.
     * createSpinner: Creates a spinner to be used through the application on loading times.
@@ -218,9 +218,8 @@ This library includes some useful functions to develop a mobile application. Thi
     * trackEvent: Tracks an event.
     * addCustomDimension: Adds a custom metric.
 * Push
-    * onNotification: Sets the behaviour when a push notification arrives.
-    * setConfigIOS: Sets the configuration parameters for iOS push notifications.
-    * setConfigAndroid: Sets the configuration parameters for Android push notifications.
+    * setOnNotification: Receives a function that sets the behaviour when a push notification arrives.
+    * setConfig: Sets the configuration parameters for push notifications.
     * init: Initialize the application push notifications settings, with the parameters set on the configuration method.
 
 #### Fonts
