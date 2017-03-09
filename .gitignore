@@ -1,5 +1,7 @@
 node_modules/
 .idea/
+platforms/
+plugins/
 www/*
 !.gitkeep
 test/coverage/
